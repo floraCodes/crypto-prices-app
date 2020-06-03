@@ -2,16 +2,21 @@ import React, { useState } from "react";
 
 //A hook is just a function
 
-const useCurrency = () => {
-  const [state, setState] = useState("");
+const useCurrency = (label, initialState, options) => {
+  const [state, setState] = useState(initialState);
 
   const Select = () => (
     <>
-      <label>Currency</label>
+      <label>{label}</label>
       <select>
-        <option value="MXN">Mexican Peso</option>
-        <option value=""></option>
-        <option value=""></option>
+        <option value="">-Select-</option>
+        {options.map((option) => {
+          return (
+            <option key={option.code} value={option.code}>
+              {option.name}
+            </option>
+          );
+        })}
       </select>
     </>
   );
