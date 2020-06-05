@@ -20,28 +20,27 @@ const SelectElem = styled.select`
   border: none;
   font-size: 1.1rem;
 `;
-//A hook is just a function
 
-const useCurrency = (label, initialState, options) => {
+const useCrypto = (label, initialState, options) => {
   const [state, setState] = useState(initialState);
 
-  const Select = () => (
+  const SelectCrypto = () => (
     <>
       <Label>{label}</Label>
       <SelectElem onChange={(e) => setState(e.target.value)} value={state}>
         <option value="">-Select-</option>
-        {options.map((option) => {
+        {/* {options.map((option) => {
           return (
             <option key={option.code} value={option.code}>
               {option.name}
             </option>
           );
-        })}
+        })} */}
       </SelectElem>
     </>
   );
 
-  return [state, Select, setState];
+  return [state, SelectCrypto, setState];
 };
 
-export default useCurrency;
+export default useCrypto;
